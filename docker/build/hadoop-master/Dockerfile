@@ -1,4 +1,4 @@
-FROM edxops/precise-common:v2
+FROM edxoperations/precise-common:v2
 MAINTAINER edxops
 
 ENV CONFIG_BRANCH hack2015/gabe/analytics-hadoop
