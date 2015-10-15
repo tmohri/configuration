@@ -90,6 +90,12 @@
     chown {{ hadoop_common_user }}:{{ hadoop_common_group }} {{ HADOOP_COMMON_USER_HOME }}/lib/edx-analytics-hadoop-util.jar
   when: not util_lib_built.stat.exists
 
+- name: pipeline start script file installed
+  template: >
+    src=analytics-pipeline-start.sh.j2
+    dest={{ COMMON_BIN_DIR }}/analytics-pipeline-start.sh
+    owner={{ hadoop_common_user }} group={{ hadoop_common_group }} mode=755
+
 #- name: ensure hdfs services are started
 #  shell: >
 #    . {{ HADOOP_COMMON_CONF_DIR }}/hadoop-env.sh && {{ HADOOP_COMMON_HOME }}/sbin/start-dfs.sh
