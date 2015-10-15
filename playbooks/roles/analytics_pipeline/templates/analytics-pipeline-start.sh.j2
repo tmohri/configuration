@@ -8,3 +8,5 @@ su hadoop -c "$HADOOP_HOME/sbin/start-yarn.sh"
 su hadoop -c "$HADOOP_HOME/bin/hdfs dfs -mkdir -p /edx-analytics-pipeline/packages/"
 su hadoop -c "$HADOOP_HOME/bin/hdfs dfs -put -f {{ HADOOP_COMMON_USER_HOME }}/lib/edx-analytics-hadoop-util.jar /edx-analytics-pipeline/packages/"
 su hadoop -c "$HADOOP_HOME/bin/hdfs dfs -mkdir -p {{ ANALYTICS_PIPELINE_HDFS_DATA_DIR }}"
+
+tail -f $HADOOP_HOME/logs/*.log

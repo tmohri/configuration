@@ -12,4 +12,4 @@ RUN sudo git pull
 WORKDIR /edx/app/edx_ansible/edx_ansible/docker/plays
 RUN sudo ansible-playbook analytics_pipeline.yml -c local
 USER root
-CMD ["bash"]
+CMD ["/edx/bin/analytics-pipeline-start.sh"]
