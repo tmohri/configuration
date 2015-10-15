@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [ -n "$GITHUB_USER" ]
+then
+    sudo usermod docker -s /bin/bash
+    su docker -c "mkdir -p /home/docker/.ssh"
+    echo >> /home/docker/.ssh/authorized_keys
+    curl https://github.com/$GITHUB_USER.keys >> /home/docker/.ssh/authorized_keys
+fi
+
 /usr/sbin/sshd
 HADOOP_HOME={{ HADOOP_COMMON_HOME }}
 su hadoop -c "$HADOOP_HOME/sbin/start-dfs.sh"
