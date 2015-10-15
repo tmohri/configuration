@@ -40,4 +40,4 @@
     - certs
     - role: analytics_api
       when: ANALYTICS_API_GIT_IDENTITY
-    - edx_ansible
+    - edx_ansible    # TODO: why is this line repeated? Remove if not needed, comment otherwise.
