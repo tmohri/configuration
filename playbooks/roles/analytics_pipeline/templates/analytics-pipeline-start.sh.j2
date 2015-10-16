@@ -8,6 +8,9 @@ then
     curl https://github.com/$GITHUB_USER.keys >> /home/docker/.ssh/authorized_keys
 fi
 
+# remote-task will be running ansible, and this directory will be owned by root, just clean it up.
+sudo rm -rf /home/docker/.ansible
+
 /usr/sbin/sshd
 HADOOP_HOME={{ HADOOP_COMMON_HOME }}
 su hadoop -c "$HADOOP_HOME/sbin/start-dfs.sh"
