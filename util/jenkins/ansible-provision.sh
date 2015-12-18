@@ -267,6 +267,8 @@ COURSE_DISCOVERY_SOCIAL_AUTH_REDIRECT_IS_HTTPS: true
 
 credentials: true
 credentials_version: master
+CREDENTIALS: true
+CREDENTIALS_VERSION: master
 EOF
 fi
 
