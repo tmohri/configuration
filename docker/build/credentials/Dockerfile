@@ -15,11 +15,10 @@ ARG REPO_OWNER=edx
 
 ADD . /edx/app/edx_ansible/edx_ansible
 
-USER docker
 WORKDIR /edx/app/edx_ansible/edx_ansible/docker/plays
 
 COPY docker/build/credentials/ansible_overrides.yml /
-RUN sudo ansible-playbook credentials.yml \
+RUN sudo /edx/app/edx_ansible/venvs/edx_ansible/bin/ansible-playbook credentials.yml \
     -c local -i '127.0.0.1,' \
     -t 'install,assets,devstack:install' \
     --extra-vars="@/ansible_overrides.yml" \
