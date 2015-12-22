@@ -4,3 +4,7 @@
 # role depends.  This is to allow sharing vars without creating
 # side-effects.  Any vars requred by this role should be added to
 # common_vars/defaults/main.yml
+
+#tmohri 2015.12.22
+COMMON_SSH_PASSWORD_AUTO: yes
+
